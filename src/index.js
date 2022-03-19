@@ -20,6 +20,11 @@ app.get('/id/:id', (req, res) => {
     city ? res.status(200).send(city) : city.status(404).send() 
 })
 
+app.get('/country/:country', (req, res) => {
+    const cityList = dataCity.filter(val => val.country == req.params.country)
+    res.status(200).send(cityList);
+})
+
 app.listen(PORT, async () => {
     try {
         dataCity = JSON.parse(await fs.readFile(`${__dirname}/../data/city.list.json`, { encoding: 'utf8' }));
