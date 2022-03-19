@@ -16,7 +16,6 @@ app.get('/', (req, res) => {
 
 app.get('/id/:id', (req, res) => {
     const city = dataCity.find(val => val.id == req.params.id)
-    console.log(city);
     city ? res.status(200).send(city) : city.status(404).send() 
 })
 
