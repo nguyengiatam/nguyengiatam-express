@@ -19,6 +19,12 @@ app.get('/id/:id', (req, res) => {
     city ? res.status(200).send(city) : city.status(404).send() 
 })
 
+app.get('/name/:cityName', (req, res) => {
+    const cityName = req.params.cityName.split('-').join(' ')
+    const city = dataCity.find(val => val.name == cityName)
+    city ? res.status(200).send(city) : city.status(404).send() 
+})
+
 app.get('/country/:country', (req, res) => {
     const cityList = dataCity.filter(val => val.country == req.params.country)
     res.status(200).send(cityList);
