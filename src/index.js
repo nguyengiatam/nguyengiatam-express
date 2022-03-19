@@ -11,6 +11,7 @@ let dataCity = '';
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
+    console.log('this is hotfix api get all city');
     res.status(200).send(dataCity);
 })
 
